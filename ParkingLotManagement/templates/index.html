@@ -47,10 +47,10 @@
                         <h1 class="mt-4"><strong>PARKING LOT MANAGMENT</strong></h1>
                     </div>
                     <div class="col d-flex justify-content-end">
-                        <button type="button" class=" mt-3 mb-3 btn btn-light">LOG OUT</button>
+                        <a href="/logout" class=" mt-3 mb-3 text-center btn btn-light">LOG OUT</a>
                     </div>
                 </div>
-                <h3 class="mt-4"><Strong>Welcome, "Agent name to input using django from databse". </Strong></h3>
+                <h3 class="mt-4"><Strong>Welcome, {{request.user}}. </Strong></h3>
                 <p class="mt-3 text-primary">.<strong></strong></p>
             </div>
         </div>
