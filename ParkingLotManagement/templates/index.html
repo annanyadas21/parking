@@ -34,6 +34,10 @@
         .card-img-top {
             padding: 10px;
         }
+
+        #logoutbtn {
+            border: 2px solid black;
+        }
     </style>
 
 </head>
@@ -47,7 +51,7 @@
                         <h1 class="mt-4"><strong>PARKING LOT MANAGMENT</strong></h1>
                     </div>
                     <div class="col d-flex justify-content-end">
-                        <a href="/logout" class=" mt-3 mb-3 text-center btn btn-light">LOG OUT</a>
+                        <a id="logoutbtn" href="/logout" class=" mt-3 mb-5 btn btn-light"><strong>LOG OUT</strong></a>
                     </div>
                 </div>
                 <h3 class="mt-4"><Strong>Welcome, {{request.user}}. </Strong></h3>
