@@ -14,6 +14,12 @@ def index(request):
         # Do something for authenticated users.
     return render(request, 'index.html')
     # Do something for anonymous users.
+def search(request):
+    print(request.user)
+    if request.user.is_anonymous:
+        return redirect('/login')
+        # Do something for authenticated users.
+    return render(request, 'search.html')
 
 
 def loginuser(request):
