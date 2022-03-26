@@ -3,6 +3,9 @@ from django.shortcuts import HttpResponse, render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout, login
+from django.contrib.messages import constants as messages
+from django.template import RequestContext
+from home.models import searching
 
 # Create your views here.
 
@@ -47,4 +50,19 @@ def logoutuser(request):
 
 
 def search(request):
-    return render(request, 'search.html')
+    req = None
+    message = ""
+    k = False
+    if request.method == 'POST':
+        ownername = request.POST.get('ownername')
+        vno = request.POST.get('vno')
+        if searching.objects.filter(vehicle_no=vno):
+            req = searching.objects.get(vehicle_no=vno)
+        if req == None:
+            message = "Vehicle not found"
+            k = False
+        else:
+            message = "Vehicle found!!"
+            k = True
+
+    return render(request, 'search.html', {'req': req, 'message': message, 'flag':k})
