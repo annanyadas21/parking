@@ -67,7 +67,7 @@
             <h3>EXIT INFORMATION</h3>
             <p>Enter your name and vehicle number:</p>
 
-            <form method="post" action="/search">
+            <form method="post" action="/exit">
               {% csrf_token %}
               <div class="col-md-12">
                 <input class="form-control" type="text" name="ownername" placeholder="Full Name" required>
@@ -92,7 +92,7 @@
       </div>
 
 
-      <div id="searchresult" class="col-md-6 text-white">
+      <div id="exit" class="col-md-6 text-white">
         <div>
           <h1 style="text-decoration: underline;">Exit details</h1>
           {% if flag %}
