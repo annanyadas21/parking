@@ -15,12 +15,12 @@
   <!-- <link rel="stylesheet" href="/style.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
   {%load static%}
   <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-  <title>Search Page</title>
+  <title>Exit Page</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/home">PARK WITH EASE</a>
+    <a class="navbar-brand" href="/home">VEHICLE INFORMATION</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -64,8 +64,8 @@
       <div class="form-holder col-md-6">
         <div class="form-content">
           <div class="form-items">
-            <h3>Search your car here</h3>
-            <p>Fill in the data below.</p>
+            <h3>EXIT INFORMATION</h3>
+            <p>Enter your name and vehicle number:</p>
 
             <form method="post" action="/search">
               {% csrf_token %}
@@ -94,7 +94,7 @@
 
       <div id="searchresult" class="col-md-6 text-white">
         <div>
-          <h1 style="text-decoration: underline;">Search result:</h1>
+          <h1 style="text-decoration: underline;">Exit details</h1>
           {% if flag %}
           <strong>{{message}}</strong><br>
           <strong>Owner name : </strong> {{req.owner_name}} <br>
@@ -103,6 +103,8 @@
           <strong>Row number : </strong> {{req.row_no}} <br>
           <strong>Position number : </strong> {{req.pos_no}} <br>
           <strong>Intime : </strong> {{req.in_time}} <br>
+          <strong>Outtime : </strong> {{req.out_time}} <br>
+          <strong>Total Cost: </strong> {{req.total_cost }} <br>
           {% else %}
           <strong>{{message}}</strong>
           {% endif %}

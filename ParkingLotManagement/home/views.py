@@ -26,6 +26,14 @@ def search(request):
         # Do something for authenticated users.
     return render(request, 'search.html')
 
+def exit(request):
+    print(request.user)
+    if request.user.is_anonymous:
+        return redirect('/login')
+        # Do something for authenticated users.
+    return render(request, 'exit.html')
+
+
 
 def loginuser(request):
     if request.method == 'POST':
@@ -66,3 +74,5 @@ def search(request):
             k = True
 
     return render(request, 'search.html', {'req': req, 'message': message, 'flag':k})
+
+
